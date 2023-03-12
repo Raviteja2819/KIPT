@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1592422350 source:c:\users\vc\desktop\eduonline_assignment_tasks\session_03\createidentiti\main.c
+	<stdio.h>
+	<conio.h>
+

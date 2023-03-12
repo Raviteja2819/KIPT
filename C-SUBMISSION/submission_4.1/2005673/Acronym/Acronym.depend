@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1593771211 source:c:\users\k.raviteja\desktop\submission_4\acronym\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+

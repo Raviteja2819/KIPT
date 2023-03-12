@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1596716940 source:c:\users\k.raviteja\desktop\2005673\binary search\main.c
+	<stdio.h>
+	<stdlib.h>
+	"binary_search.h"
+
+1596717423 c:\users\k.raviteja\desktop\2005673\binary search\binary_search.h
+

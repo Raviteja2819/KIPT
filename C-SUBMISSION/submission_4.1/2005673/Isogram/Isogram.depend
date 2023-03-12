@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1593770023 source:c:\users\k.raviteja\desktop\submission_4\isogram\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

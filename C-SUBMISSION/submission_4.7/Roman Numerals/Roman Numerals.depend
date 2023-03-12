@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1597233278 source:c:\users\k.raviteja\desktop\2005673\roman numerals\main.c
+	"roman.h"
+
+1597233380 c:\users\k.raviteja\desktop\2005673\roman numerals\roman.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

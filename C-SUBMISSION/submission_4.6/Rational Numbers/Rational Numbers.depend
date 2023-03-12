@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1596795639 source:c:\users\k.raviteja\desktop\2005673\rational numbers\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Rational Numbers.h"
+
+1596795800 c:\users\k.raviteja\desktop\2005673\rational numbers\rational numbers.h
+	<math.h>
+

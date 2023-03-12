@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1596181336 source:c:\users\k.raviteja\desktop\2005673\squre root\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

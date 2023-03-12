@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1592068071 source:c:\users\vc\desktop\eduonline_assignment_tasks\session_05\stringtointeger\main.c
+	<stdio.h>
+	<stdlib.h>
+

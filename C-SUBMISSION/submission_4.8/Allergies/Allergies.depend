@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1597748686 source:c:\users\bhanu\documents\codeblocks\2005681_submission_4.6\allergies\allergies.c
+	"Allergies.h"
+
+1597748579 c:\users\bhanu\documents\codeblocks\2005681_submission_4.6\allergies\allergies.h
+	<stdio.h>
+

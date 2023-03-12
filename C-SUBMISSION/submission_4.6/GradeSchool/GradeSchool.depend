@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1596709277 source:c:\users\bhanu\documents\codeblocks\2005681_submission_4.6\gradeschool\gradeschool.c
+	"GradeSchool.h"
+
+1596711052 c:\users\bhanu\documents\codeblocks\2005681_submission_4.6\gradeschool\gradeschool.h
+	<stdio.h>
+	<string.h>
+
+1596792510 source:c:\users\k.raviteja\desktop\gradeschool\gradeschool\gradeschool.c
+	"GradeSchool.h"
+
+1596792546 c:\users\k.raviteja\desktop\gradeschool\gradeschool\gradeschool.h
+	<stdio.h>
+	<string.h>
+

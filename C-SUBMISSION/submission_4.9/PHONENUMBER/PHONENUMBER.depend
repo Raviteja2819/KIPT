@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1600093912 source:c:\users\k.raviteja\desktop\2005673\phonenumber\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<string.h>
+	<ctype.h>
+

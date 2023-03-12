@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1597395790 source:c:\users\bhanu\documents\codeblocks\2005681_submission_4.7\circularbuffer\circularbuffer.c
+	"CircularBuffer.h"
+
+1597396009 c:\users\bhanu\documents\codeblocks\2005681_submission_4.7\circularbuffer\circularbuffer.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1597402854 source:c:\users\k.raviteja\desktop\circularbuffer (1)\circularbuffer\circularbuffer.c
+	"CircularBuffer.h"
+
+1597402854 c:\users\k.raviteja\desktop\circularbuffer (1)\circularbuffer\circularbuffer.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+

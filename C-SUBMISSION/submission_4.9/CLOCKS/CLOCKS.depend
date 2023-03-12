@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1601271326 source:c:\users\k.raviteja\desktop\2005673-c\clocks\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

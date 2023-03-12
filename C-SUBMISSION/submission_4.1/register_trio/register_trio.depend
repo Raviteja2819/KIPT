@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1593777010 source:c:\users\k.raviteja\desktop\submission_4\register_trio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1593777560 source:c:\users\k.raviteja\desktop\submission\submission_4.1\register_trio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1593433063 source:c:\users\k.raviteja\desktop\submission_4\armstrong\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1594367598 source:c:\users\k.raviteja\desktop\2005673\space_age\main.c
+	<stdio.h>
+	<string.h>
+	<math.h>
+

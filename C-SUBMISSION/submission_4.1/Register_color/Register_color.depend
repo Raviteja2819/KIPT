@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1593699217 source:c:\users\k.raviteja\desktop\submission_4\register_color\main.c
+	<stdio.h>
+	<string.h>
+
+1593699217 source:c:\users\k.raviteja\desktop\submission\submission_4.1\register_color\main.c
+	<stdio.h>
+	<string.h>
+
