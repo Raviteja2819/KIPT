@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1599652010 source:c:\users\k.raviteja\desktop\embedded c\codes\2005673\fuse.c
+	<avr/io.h>
+
+1599735194 source:c:\users\k.raviteja\desktop\embedded c\codes\2005673\main.c
+	"GPIO.h"
+
+1599735194 c:\users\k.raviteja\desktop\embedded c\codes\2005673\gpio.h
+	<avr/io.h>
+	<util/delay.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+
+1599669952 source:c:\users\k.raviteja\desktop\embedded c\codes\2005673\gpio.c
+	"GPIO.h"
+

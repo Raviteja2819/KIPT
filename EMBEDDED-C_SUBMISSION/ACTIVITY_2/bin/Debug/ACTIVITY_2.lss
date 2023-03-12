@@ -1,0 +1,623 @@
+
+bin\Debug\ACTIVITY_2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000362  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000007  00800100  00800100  000003f6  2**0
+                  ALLOC
+  2 .fuse         00000003  00820000  00820000  000003f6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .debug_aranges 00000060  00000000  00000000  000003f9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 000000e6  00000000  00000000  00000459  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000045c  00000000  00000000  0000053f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000026c  00000000  00000000  0000099b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000461  00000000  00000000  00000c07  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000c0  00000000  00000000  00001068  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000183  00000000  00000000  00001128  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000009b  00000000  00000000  000012ab  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 9c 00 	jmp	0x138	; 0x138 <__vector_1>
+   8:	0c 94 ad 00 	jmp	0x15a	; 0x15a <__vector_2>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a7 30       	cpi	r26, 0x07	; 7
+  80:	b1 07       	cpc	r27, r17
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 be 00 	call	0x17c	; 0x17c <main>
+  88:	0c 94 af 01 	jmp	0x35e	; 0x35e <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <GPIOConfig>:
+* Name: GPIOConfig (pin, mode)
+* Description: Configures the mode of the pin as INPUT/PULLUP or OUTPUT
+* Arguments: pin and mode
+* Returns: None
+******************************************************************************/
+void GPIOConfig(Pin,mode){
+  90:	28 2f       	mov	r18, r24
+
+        if(mode==1){
+  92:	61 30       	cpi	r22, 0x01	; 1
+  94:	71 05       	cpc	r23, r1
+  96:	81 f0       	breq	.+32     	; 0xb8 <GPIOConfig+0x28>
+            SET_BIT(DDRD,Pin);
+        }
+        else{
+            CLR_BIT(DDRD,Pin);
+  98:	3a b1       	in	r19, 0x0a	; 10
+  9a:	81 e0       	ldi	r24, 0x01	; 1
+  9c:	90 e0       	ldi	r25, 0x00	; 0
+  9e:	02 c0       	rjmp	.+4      	; 0xa4 <GPIOConfig+0x14>
+  a0:	88 0f       	add	r24, r24
+  a2:	99 1f       	adc	r25, r25
+  a4:	2a 95       	dec	r18
+  a6:	e2 f7       	brpl	.-8      	; 0xa0 <GPIOConfig+0x10>
+  a8:	28 2f       	mov	r18, r24
+  aa:	20 95       	com	r18
+  ac:	23 23       	and	r18, r19
+  ae:	2a b9       	out	0x0a, r18	; 10
+            SET_BIT(PORTD,Pin);
+  b0:	2b b1       	in	r18, 0x0b	; 11
+  b2:	82 2b       	or	r24, r18
+  b4:	8b b9       	out	0x0b, r24	; 11
+  b6:	08 95       	ret
+* Returns: None
+******************************************************************************/
+void GPIOConfig(Pin,mode){
+
+        if(mode==1){
+            SET_BIT(DDRD,Pin);
+  b8:	8a b1       	in	r24, 0x0a	; 10
+  ba:	02 c0       	rjmp	.+4      	; 0xc0 <GPIOConfig+0x30>
+  bc:	66 0f       	add	r22, r22
+  be:	77 1f       	adc	r23, r23
+  c0:	2a 95       	dec	r18
+  c2:	e2 f7       	brpl	.-8      	; 0xbc <GPIOConfig+0x2c>
+  c4:	86 2b       	or	r24, r22
+  c6:	8a b9       	out	0x0a, r24	; 10
+  c8:	08 95       	ret
+
+000000ca <GPIOPinRead>:
+* Returns: a
+******************************************************************************/
+int GPIOPinRead(Pin){
+
+
+            uint8_t PIN_READ=PIND;
+  ca:	29 b1       	in	r18, 0x09	; 9
+            if(PIN_READ & (1<<Pin)){
+  cc:	30 e0       	ldi	r19, 0x00	; 0
+  ce:	02 c0       	rjmp	.+4      	; 0xd4 <GPIOPinRead+0xa>
+  d0:	35 95       	asr	r19
+  d2:	27 95       	ror	r18
+  d4:	8a 95       	dec	r24
+  d6:	e2 f7       	brpl	.-8      	; 0xd0 <GPIOPinRead+0x6>
+  d8:	20 fd       	sbrc	r18, 0
+  da:	09 c0       	rjmp	.+18     	; 0xee <GPIOPinRead+0x24>
+                a=1;
+            }
+            else{
+                a=0;
+  dc:	10 92 01 01 	sts	0x0101, r1
+  e0:	10 92 00 01 	sts	0x0100, r1
+            }
+    return a;
+};
+  e4:	80 91 00 01 	lds	r24, 0x0100
+  e8:	90 91 01 01 	lds	r25, 0x0101
+  ec:	08 95       	ret
+int GPIOPinRead(Pin){
+
+
+            uint8_t PIN_READ=PIND;
+            if(PIN_READ & (1<<Pin)){
+                a=1;
+  ee:	81 e0       	ldi	r24, 0x01	; 1
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	90 93 01 01 	sts	0x0101, r25
+  f6:	80 93 00 01 	sts	0x0100, r24
+            }
+            else{
+                a=0;
+            }
+    return a;
+};
+  fa:	80 91 00 01 	lds	r24, 0x0100
+  fe:	90 91 01 01 	lds	r25, 0x0101
+ 102:	08 95       	ret
+
+00000104 <GPIOPinWrite>:
+* Name: void GPIOPinWrite(int Pin,int state)
+* Description: Writes the state of the pin as HIGH or LOW
+* Arguments: pin and state
+* Returns: None
+******************************************************************************/
+void GPIOPinWrite(Pin,state){
+ 104:	38 2f       	mov	r19, r24
+        if(state==0){
+ 106:	67 2b       	or	r22, r23
+ 108:	59 f0       	breq	.+22     	; 0x120 <GPIOPinWrite+0x1c>
+            CLR_BIT(PORTD,Pin);
+        }
+        else{
+            SET_BIT(PORTD,Pin);
+ 10a:	2b b1       	in	r18, 0x0b	; 11
+ 10c:	81 e0       	ldi	r24, 0x01	; 1
+ 10e:	90 e0       	ldi	r25, 0x00	; 0
+ 110:	02 c0       	rjmp	.+4      	; 0x116 <GPIOPinWrite+0x12>
+ 112:	88 0f       	add	r24, r24
+ 114:	99 1f       	adc	r25, r25
+ 116:	3a 95       	dec	r19
+ 118:	e2 f7       	brpl	.-8      	; 0x112 <GPIOPinWrite+0xe>
+ 11a:	28 2b       	or	r18, r24
+ 11c:	2b b9       	out	0x0b, r18	; 11
+ 11e:	08 95       	ret
+* Arguments: pin and state
+* Returns: None
+******************************************************************************/
+void GPIOPinWrite(Pin,state){
+        if(state==0){
+            CLR_BIT(PORTD,Pin);
+ 120:	2b b1       	in	r18, 0x0b	; 11
+ 122:	81 e0       	ldi	r24, 0x01	; 1
+ 124:	90 e0       	ldi	r25, 0x00	; 0
+ 126:	02 c0       	rjmp	.+4      	; 0x12c <GPIOPinWrite+0x28>
+ 128:	88 0f       	add	r24, r24
+ 12a:	99 1f       	adc	r25, r25
+ 12c:	3a 95       	dec	r19
+ 12e:	e2 f7       	brpl	.-8      	; 0x128 <GPIOPinWrite+0x24>
+ 130:	80 95       	com	r24
+ 132:	82 23       	and	r24, r18
+ 134:	8b b9       	out	0x0b, r24	; 11
+ 136:	08 95       	ret
+
+00000138 <__vector_1>:
+                break;
+        }
+
+    }
+}
+ISR(INT0_vect) {
+ 138:	1f 92       	push	r1
+ 13a:	0f 92       	push	r0
+ 13c:	0f b6       	in	r0, 0x3f	; 63
+ 13e:	0f 92       	push	r0
+ 140:	11 24       	eor	r1, r1
+ 142:	8f 93       	push	r24
+
+  F.FLAG_ISR1 = 1;
+ 144:	80 91 06 01 	lds	r24, 0x0106
+ 148:	81 60       	ori	r24, 0x01	; 1
+ 14a:	80 93 06 01 	sts	0x0106, r24
+
+}
+ 14e:	8f 91       	pop	r24
+ 150:	0f 90       	pop	r0
+ 152:	0f be       	out	0x3f, r0	; 63
+ 154:	0f 90       	pop	r0
+ 156:	1f 90       	pop	r1
+ 158:	18 95       	reti
+
+0000015a <__vector_2>:
+ISR(INT1_vect) {
+ 15a:	1f 92       	push	r1
+ 15c:	0f 92       	push	r0
+ 15e:	0f b6       	in	r0, 0x3f	; 63
+ 160:	0f 92       	push	r0
+ 162:	11 24       	eor	r1, r1
+ 164:	8f 93       	push	r24
+
+  F.FLAG_ISR2 = 1;
+ 166:	80 91 06 01 	lds	r24, 0x0106
+ 16a:	82 60       	ori	r24, 0x02	; 2
+ 16c:	80 93 06 01 	sts	0x0106, r24
+
+}
+ 170:	8f 91       	pop	r24
+ 172:	0f 90       	pop	r0
+ 174:	0f be       	out	0x3f, r0	; 63
+ 176:	0f 90       	pop	r0
+ 178:	1f 90       	pop	r1
+ 17a:	18 95       	reti
+
+0000017c <main>:
+
+}F;
+int n=0;
+int ppp=0;
+int main(void)
+{
+ 17c:	0f 93       	push	r16
+ 17e:	1f 93       	push	r17
+ 180:	cf 93       	push	r28
+ 182:	df 93       	push	r29
+    GPIOConfig(PD2,INPUT);
+ 184:	82 e0       	ldi	r24, 0x02	; 2
+ 186:	90 e0       	ldi	r25, 0x00	; 0
+ 188:	60 e0       	ldi	r22, 0x00	; 0
+ 18a:	70 e0       	ldi	r23, 0x00	; 0
+ 18c:	0e 94 48 00 	call	0x90	; 0x90 <GPIOConfig>
+    GPIOConfig(PD3,INPUT);
+ 190:	83 e0       	ldi	r24, 0x03	; 3
+ 192:	90 e0       	ldi	r25, 0x00	; 0
+ 194:	60 e0       	ldi	r22, 0x00	; 0
+ 196:	70 e0       	ldi	r23, 0x00	; 0
+ 198:	0e 94 48 00 	call	0x90	; 0x90 <GPIOConfig>
+    GPIOConfig(PD6,OUTPUT);
+ 19c:	86 e0       	ldi	r24, 0x06	; 6
+ 19e:	90 e0       	ldi	r25, 0x00	; 0
+ 1a0:	61 e0       	ldi	r22, 0x01	; 1
+ 1a2:	70 e0       	ldi	r23, 0x00	; 0
+ 1a4:	0e 94 48 00 	call	0x90	; 0x90 <GPIOConfig>
+    GPIOConfig(PD7,OUTPUT);
+ 1a8:	87 e0       	ldi	r24, 0x07	; 7
+ 1aa:	90 e0       	ldi	r25, 0x00	; 0
+ 1ac:	61 e0       	ldi	r22, 0x01	; 1
+ 1ae:	70 e0       	ldi	r23, 0x00	; 0
+ 1b0:	0e 94 48 00 	call	0x90	; 0x90 <GPIOConfig>
+    EICRA |= (1<<ISC00);
+ 1b4:	80 91 69 00 	lds	r24, 0x0069
+ 1b8:	81 60       	ori	r24, 0x01	; 1
+ 1ba:	80 93 69 00 	sts	0x0069, r24
+    EICRA &=~(1<<ISC01);
+ 1be:	80 91 69 00 	lds	r24, 0x0069
+ 1c2:	8d 7f       	andi	r24, 0xFD	; 253
+ 1c4:	80 93 69 00 	sts	0x0069, r24
+    EIMSK |= (1<<INT0);
+ 1c8:	e8 9a       	sbi	0x1d, 0	; 29
+    sei();
+ 1ca:	78 94       	sei
+    EICRA |= (1<<ISC10);
+ 1cc:	80 91 69 00 	lds	r24, 0x0069
+ 1d0:	84 60       	ori	r24, 0x04	; 4
+ 1d2:	80 93 69 00 	sts	0x0069, r24
+    EICRA &=~(1<<ISC11);
+ 1d6:	80 91 69 00 	lds	r24, 0x0069
+ 1da:	87 7f       	andi	r24, 0xF7	; 247
+ 1dc:	80 93 69 00 	sts	0x0069, r24
+    EIMSK |= (1<<INT1);
+ 1e0:	e9 9a       	sbi	0x1d, 1	; 29
+    sei();
+ 1e2:	78 94       	sei
+ 1e4:	80 91 02 01 	lds	r24, 0x0102
+ 1e8:	90 91 03 01 	lds	r25, 0x0103
+            case(0):
+                if(F.FLAG_ISR1==0){
+                    FSMInit();
+                }
+                else if(F.FLAG_ISR1==1){
+                    n=1;
+ 1ec:	c1 e0       	ldi	r28, 0x01	; 1
+ 1ee:	d0 e0       	ldi	r29, 0x00	; 0
+            case(1):
+                if(F.FLAG_ISR1==0 && F.FLAG_ISR2==0){
+                    FSMStateA();
+                }
+                else if(F.FLAG_ISR2==1){
+                    n=2;
+ 1f0:	02 e0       	ldi	r16, 0x02	; 2
+ 1f2:	10 e0       	ldi	r17, 0x00	; 0
+    sei();
+    while(1)
+    {
+
+
+        switch(n){
+ 1f4:	81 30       	cpi	r24, 0x01	; 1
+ 1f6:	91 05       	cpc	r25, r1
+ 1f8:	e1 f0       	breq	.+56     	; 0x232 <main+0xb6>
+ 1fa:	82 30       	cpi	r24, 0x02	; 2
+ 1fc:	91 05       	cpc	r25, r1
+ 1fe:	81 f1       	breq	.+96     	; 0x260 <main+0xe4>
+ 200:	00 97       	sbiw	r24, 0x00	; 0
+ 202:	c1 f7       	brne	.-16     	; 0x1f4 <main+0x78>
+            case(0):
+                if(F.FLAG_ISR1==0){
+ 204:	80 91 06 01 	lds	r24, 0x0106
+ 208:	80 ff       	sbrs	r24, 0
+ 20a:	47 c0       	rjmp	.+142    	; 0x29a <main+0x11e>
+                    FSMInit();
+                }
+                else if(F.FLAG_ISR1==1){
+                    n=1;
+ 20c:	d0 93 03 01 	sts	0x0103, r29
+ 210:	c0 93 02 01 	sts	0x0102, r28
+                    F.FLAG_ISR1=0;
+ 214:	80 91 06 01 	lds	r24, 0x0106
+ 218:	8e 7f       	andi	r24, 0xFE	; 254
+ 21a:	80 93 06 01 	sts	0x0106, r24
+                    F.FLAG_ISR2=0;
+ 21e:	80 91 06 01 	lds	r24, 0x0106
+ 222:	8d 7f       	andi	r24, 0xFD	; 253
+ 224:	80 93 06 01 	sts	0x0106, r24
+ 228:	81 e0       	ldi	r24, 0x01	; 1
+ 22a:	90 e0       	ldi	r25, 0x00	; 0
+    sei();
+    while(1)
+    {
+
+
+        switch(n){
+ 22c:	81 30       	cpi	r24, 0x01	; 1
+ 22e:	91 05       	cpc	r25, r1
+ 230:	21 f7       	brne	.-56     	; 0x1fa <main+0x7e>
+                    F.FLAG_ISR1=0;
+                    F.FLAG_ISR2=0;
+                }
+                break;
+            case(1):
+                if(F.FLAG_ISR1==0 && F.FLAG_ISR2==0){
+ 232:	20 91 06 01 	lds	r18, 0x0106
+ 236:	20 fd       	sbrc	r18, 0
+ 238:	2a c0       	rjmp	.+84     	; 0x28e <main+0x112>
+ 23a:	21 ff       	sbrs	r18, 1
+ 23c:	3c c0       	rjmp	.+120    	; 0x2b6 <main+0x13a>
+                    FSMStateA();
+                }
+                else if(F.FLAG_ISR2==1){
+                    n=2;
+ 23e:	10 93 03 01 	sts	0x0103, r17
+ 242:	00 93 02 01 	sts	0x0102, r16
+                    F.FLAG_ISR1=0;
+ 246:	80 91 06 01 	lds	r24, 0x0106
+ 24a:	8e 7f       	andi	r24, 0xFE	; 254
+ 24c:	80 93 06 01 	sts	0x0106, r24
+                    F.FLAG_ISR2=0;
+ 250:	80 91 06 01 	lds	r24, 0x0106
+ 254:	8d 7f       	andi	r24, 0xFD	; 253
+ 256:	80 93 06 01 	sts	0x0106, r24
+ 25a:	82 e0       	ldi	r24, 0x02	; 2
+ 25c:	90 e0       	ldi	r25, 0x00	; 0
+ 25e:	ca cf       	rjmp	.-108    	; 0x1f4 <main+0x78>
+                }
+                break;
+
+            case(2):
+                if(F.FLAG_ISR2==0 && F.FLAG_ISR1==0){
+ 260:	20 91 06 01 	lds	r18, 0x0106
+ 264:	21 fd       	sbrc	r18, 1
+ 266:	16 c0       	rjmp	.+44     	; 0x294 <main+0x118>
+ 268:	20 ff       	sbrs	r18, 0
+ 26a:	1e c0       	rjmp	.+60     	; 0x2a8 <main+0x12c>
+                    FSMStateB();
+                }
+                else if(F.FLAG_ISR1==1){
+                    n=0;
+ 26c:	10 92 03 01 	sts	0x0103, r1
+ 270:	10 92 02 01 	sts	0x0102, r1
+                    F.FLAG_ISR1=0;
+ 274:	80 91 06 01 	lds	r24, 0x0106
+ 278:	8e 7f       	andi	r24, 0xFE	; 254
+ 27a:	80 93 06 01 	sts	0x0106, r24
+                    F.FLAG_ISR2=0;
+ 27e:	80 91 06 01 	lds	r24, 0x0106
+ 282:	8d 7f       	andi	r24, 0xFD	; 253
+ 284:	80 93 06 01 	sts	0x0106, r24
+ 288:	80 e0       	ldi	r24, 0x00	; 0
+ 28a:	90 e0       	ldi	r25, 0x00	; 0
+ 28c:	b3 cf       	rjmp	.-154    	; 0x1f4 <main+0x78>
+                break;
+            case(1):
+                if(F.FLAG_ISR1==0 && F.FLAG_ISR2==0){
+                    FSMStateA();
+                }
+                else if(F.FLAG_ISR2==1){
+ 28e:	21 ff       	sbrs	r18, 1
+ 290:	b1 cf       	rjmp	.-158    	; 0x1f4 <main+0x78>
+ 292:	d5 cf       	rjmp	.-86     	; 0x23e <main+0xc2>
+
+            case(2):
+                if(F.FLAG_ISR2==0 && F.FLAG_ISR1==0){
+                    FSMStateB();
+                }
+                else if(F.FLAG_ISR1==1){
+ 294:	20 ff       	sbrs	r18, 0
+ 296:	ae cf       	rjmp	.-164    	; 0x1f4 <main+0x78>
+ 298:	e9 cf       	rjmp	.-46     	; 0x26c <main+0xf0>
+
+
+        switch(n){
+            case(0):
+                if(F.FLAG_ISR1==0){
+                    FSMInit();
+ 29a:	0e 94 7c 01 	call	0x2f8	; 0x2f8 <FSMInit>
+ 29e:	80 91 02 01 	lds	r24, 0x0102
+ 2a2:	90 91 03 01 	lds	r25, 0x0103
+ 2a6:	a6 cf       	rjmp	.-180    	; 0x1f4 <main+0x78>
+                }
+                break;
+
+            case(2):
+                if(F.FLAG_ISR2==0 && F.FLAG_ISR1==0){
+                    FSMStateB();
+ 2a8:	0e 94 62 01 	call	0x2c4	; 0x2c4 <FSMStateB>
+ 2ac:	80 91 02 01 	lds	r24, 0x0102
+ 2b0:	90 91 03 01 	lds	r25, 0x0103
+ 2b4:	9f cf       	rjmp	.-194    	; 0x1f4 <main+0x78>
+                    F.FLAG_ISR2=0;
+                }
+                break;
+            case(1):
+                if(F.FLAG_ISR1==0 && F.FLAG_ISR2==0){
+                    FSMStateA();
+ 2b6:	0e 94 6f 01 	call	0x2de	; 0x2de <FSMStateA>
+ 2ba:	80 91 02 01 	lds	r24, 0x0102
+ 2be:	90 91 03 01 	lds	r25, 0x0103
+ 2c2:	98 cf       	rjmp	.-208    	; 0x1f4 <main+0x78>
+
+000002c4 <FSMStateB>:
+* Description: FSM state B
+* Arguments: None
+* Returns: None
+******************************************************************************/
+void FSMStateB(){
+        GPIOPinWrite(PD6,LOW);
+ 2c4:	86 e0       	ldi	r24, 0x06	; 6
+ 2c6:	90 e0       	ldi	r25, 0x00	; 0
+ 2c8:	60 e0       	ldi	r22, 0x00	; 0
+ 2ca:	70 e0       	ldi	r23, 0x00	; 0
+ 2cc:	0e 94 82 00 	call	0x104	; 0x104 <GPIOPinWrite>
+        GPIOPinWrite(PD7,LOW);
+ 2d0:	87 e0       	ldi	r24, 0x07	; 7
+ 2d2:	90 e0       	ldi	r25, 0x00	; 0
+ 2d4:	60 e0       	ldi	r22, 0x00	; 0
+ 2d6:	70 e0       	ldi	r23, 0x00	; 0
+ 2d8:	0e 94 82 00 	call	0x104	; 0x104 <GPIOPinWrite>
+    };
+ 2dc:	08 95       	ret
+
+000002de <FSMStateA>:
+* Description: FSM state mode A
+* Arguments: None
+* Returns: None
+******************************************************************************/
+void FSMStateA(){
+        GPIOPinWrite(PD6,HIGH);
+ 2de:	86 e0       	ldi	r24, 0x06	; 6
+ 2e0:	90 e0       	ldi	r25, 0x00	; 0
+ 2e2:	61 e0       	ldi	r22, 0x01	; 1
+ 2e4:	70 e0       	ldi	r23, 0x00	; 0
+ 2e6:	0e 94 82 00 	call	0x104	; 0x104 <GPIOPinWrite>
+        GPIOPinWrite(PD7,HIGH);
+ 2ea:	87 e0       	ldi	r24, 0x07	; 7
+ 2ec:	90 e0       	ldi	r25, 0x00	; 0
+ 2ee:	61 e0       	ldi	r22, 0x01	; 1
+ 2f0:	70 e0       	ldi	r23, 0x00	; 0
+ 2f2:	0e 94 82 00 	call	0x104	; 0x104 <GPIOPinWrite>
+    };
+ 2f6:	08 95       	ret
+
+000002f8 <FSMInit>:
+* Description: state mode
+* Arguments: None
+* Returns: None
+******************************************************************************/
+void FSMInit(){
+        GPIOPinWrite(PD6,HIGH);
+ 2f8:	86 e0       	ldi	r24, 0x06	; 6
+ 2fa:	90 e0       	ldi	r25, 0x00	; 0
+ 2fc:	61 e0       	ldi	r22, 0x01	; 1
+ 2fe:	70 e0       	ldi	r23, 0x00	; 0
+ 300:	0e 94 82 00 	call	0x104	; 0x104 <GPIOPinWrite>
+        GPIOPinWrite(PD7,HIGH);
+ 304:	87 e0       	ldi	r24, 0x07	; 7
+ 306:	90 e0       	ldi	r25, 0x00	; 0
+ 308:	61 e0       	ldi	r22, 0x01	; 1
+ 30a:	70 e0       	ldi	r23, 0x00	; 0
+ 30c:	0e 94 82 00 	call	0x104	; 0x104 <GPIOPinWrite>
+ 310:	20 e0       	ldi	r18, 0x00	; 0
+ 312:	30 e0       	ldi	r19, 0x00	; 0
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 314:	40 e9       	ldi	r20, 0x90	; 144
+ 316:	51 e0       	ldi	r21, 0x01	; 1
+ 318:	ca 01       	movw	r24, r20
+ 31a:	01 97       	sbiw	r24, 0x01	; 1
+ 31c:	f1 f7       	brne	.-4      	; 0x31a <FSMInit+0x22>
+ 31e:	2f 5f       	subi	r18, 0xFF	; 255
+ 320:	3f 4f       	sbci	r19, 0xFF	; 255
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 322:	8e e4       	ldi	r24, 0x4E	; 78
+ 324:	20 32       	cpi	r18, 0x20	; 32
+ 326:	38 07       	cpc	r19, r24
+ 328:	b9 f7       	brne	.-18     	; 0x318 <FSMInit+0x20>
+        _delay_ms(2000);
+        GPIOPinWrite(PD7,LOW);
+ 32a:	87 e0       	ldi	r24, 0x07	; 7
+ 32c:	90 e0       	ldi	r25, 0x00	; 0
+ 32e:	60 e0       	ldi	r22, 0x00	; 0
+ 330:	70 e0       	ldi	r23, 0x00	; 0
+ 332:	0e 94 82 00 	call	0x104	; 0x104 <GPIOPinWrite>
+        GPIOPinWrite(PD6,LOW);
+ 336:	86 e0       	ldi	r24, 0x06	; 6
+ 338:	90 e0       	ldi	r25, 0x00	; 0
+ 33a:	60 e0       	ldi	r22, 0x00	; 0
+ 33c:	70 e0       	ldi	r23, 0x00	; 0
+ 33e:	0e 94 82 00 	call	0x104	; 0x104 <GPIOPinWrite>
+ 342:	20 e0       	ldi	r18, 0x00	; 0
+ 344:	30 e0       	ldi	r19, 0x00	; 0
+ 346:	40 e9       	ldi	r20, 0x90	; 144
+ 348:	51 e0       	ldi	r21, 0x01	; 1
+ 34a:	ca 01       	movw	r24, r20
+ 34c:	01 97       	sbiw	r24, 0x01	; 1
+ 34e:	f1 f7       	brne	.-4      	; 0x34c <FSMInit+0x54>
+ 350:	2f 5f       	subi	r18, 0xFF	; 255
+ 352:	3f 4f       	sbci	r19, 0xFF	; 255
+ 354:	8e e4       	ldi	r24, 0x4E	; 78
+ 356:	20 32       	cpi	r18, 0x20	; 32
+ 358:	38 07       	cpc	r19, r24
+ 35a:	b9 f7       	brne	.-18     	; 0x34a <FSMInit+0x52>
+        _delay_ms(2000);
+};
+ 35c:	08 95       	ret
+
+0000035e <_exit>:
+ 35e:	f8 94       	cli
+
+00000360 <__stop_program>:
+ 360:	ff cf       	rjmp	.-2      	; 0x360 <__stop_program>

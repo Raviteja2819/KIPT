@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1599823943 source:c:\users\k.raviteja\desktop\embedded c\codes\activity_2\fuse.c
+	<avr/io.h>
+
+1599834548 source:c:\users\k.raviteja\desktop\embedded c\codes\activity_2\gpio.c
+	"GPIO.h"
+
+1601027243 c:\users\k.raviteja\desktop\embedded c\codes\activity_2\gpio.h
+	<avr/io.h>
+	<avr/interrupt.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<util/delay.h>
+
+1600251905 source:c:\users\k.raviteja\desktop\embedded c\codes\activity_2\main.c
+	"GPIO.h"
+	"StateFSM.h"
+
+1601027243 c:\users\k.raviteja\desktop\embedded c\codes\activity_2\statefsm.h
+	"GPIO.h"
+
+1599834548 source:c:\users\k.raviteja\desktop\embedded c\codes\activity_2\statefsm.c
+	"StateFSM.h"
+

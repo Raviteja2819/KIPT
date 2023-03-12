@@ -1,0 +1,515 @@
+
+bin\Debug\ACTIVITY.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002ca  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          0000000b  00800100  00800100  0000035e  2**0
+                  ALLOC
+  2 .fuse         00000003  00820000  00820000  0000035e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .debug_aranges 00000060  00000000  00000000  00000361  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 000000c9  00000000  00000000  000003c1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000376  00000000  00000000  0000048a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000020e  00000000  00000000  00000800  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000003a2  00000000  00000000  00000a0e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000a0  00000000  00000000  00000db0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000142  00000000  00000000  00000e50  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000006b  00000000  00000000  00000f92  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 fb 00 	jmp	0x1f6	; 0x1f6 <__vector_1>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	ab 30       	cpi	r26, 0x0B	; 11
+  80:	b1 07       	cpc	r27, r17
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 16 01 	call	0x22c	; 0x22c <main>
+  88:	0c 94 63 01 	jmp	0x2c6	; 0x2c6 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <samplingmode>:
+* Returns: None
+******************************************************************************/
+int samplingmode() {
+
+
+    ADCSRA |= (1 << ADSC);
+  90:	80 91 7a 00 	lds	r24, 0x007A
+  94:	80 64       	ori	r24, 0x40	; 64
+  96:	80 93 7a 00 	sts	0x007A, r24
+    while (ADCSRA & (1 << ADSC));
+  9a:	80 91 7a 00 	lds	r24, 0x007A
+  9e:	86 fd       	sbrc	r24, 6
+  a0:	fc cf       	rjmp	.-8      	; 0x9a <samplingmode+0xa>
+    left = (int)ADCL;
+  a2:	80 91 78 00 	lds	r24, 0x0078
+  a6:	90 e0       	ldi	r25, 0x00	; 0
+  a8:	90 93 01 01 	sts	0x0101, r25
+  ac:	80 93 00 01 	sts	0x0100, r24
+    right = (int)ADCH * 256;
+  b0:	40 91 79 00 	lds	r20, 0x0079
+  b4:	34 2f       	mov	r19, r20
+  b6:	20 e0       	ldi	r18, 0x00	; 0
+  b8:	30 93 03 01 	sts	0x0103, r19
+  bc:	20 93 02 01 	sts	0x0102, r18
+    ADC_value = left + right;
+  c0:	28 0f       	add	r18, r24
+  c2:	39 1f       	adc	r19, r25
+  c4:	30 93 05 01 	sts	0x0105, r19
+  c8:	20 93 04 01 	sts	0x0104, r18
+    if(ADC_value >= 0 && ADC_value <= 204)
+  cc:	2d 3c       	cpi	r18, 0xCD	; 205
+  ce:	31 05       	cpc	r19, r1
+  d0:	08 f1       	brcs	.+66     	; 0x114 <samplingmode+0x84>
+    {
+        t=63;
+    }
+    else if(ADC_value > 204 && ADC_value <= 410)
+  d2:	c9 01       	movw	r24, r18
+  d4:	8d 5c       	subi	r24, 0xCD	; 205
+  d6:	90 40       	sbci	r25, 0x00	; 0
+  d8:	8e 3c       	cpi	r24, 0xCE	; 206
+  da:	91 05       	cpc	r25, r1
+  dc:	80 f0       	brcs	.+32     	; 0xfe <samplingmode+0x6e>
+    {
+        t=128;
+    }
+    else if(ADC_value > 410 && ADC_value <= 614)
+  de:	c9 01       	movw	r24, r18
+  e0:	8b 59       	subi	r24, 0x9B	; 155
+  e2:	91 40       	sbci	r25, 0x01	; 1
+  e4:	8c 3c       	cpi	r24, 0xCC	; 204
+  e6:	91 05       	cpc	r25, r1
+  e8:	00 f1       	brcs	.+64     	; 0x12a <samplingmode+0x9a>
+    {
+        t=191;
+    }
+    else if(ADC_value >614)
+  ea:	27 56       	subi	r18, 0x67	; 103
+  ec:	32 40       	sbci	r19, 0x02	; 2
+  ee:	68 f0       	brcs	.+26     	; 0x10a <samplingmode+0x7a>
+    {
+        t = 255;
+  f0:	8f ef       	ldi	r24, 0xFF	; 255
+  f2:	90 e0       	ldi	r25, 0x00	; 0
+  f4:	90 93 07 01 	sts	0x0107, r25
+  f8:	80 93 06 01 	sts	0x0106, r24
+  fc:	06 c0       	rjmp	.+12     	; 0x10a <samplingmode+0x7a>
+    {
+        t=63;
+    }
+    else if(ADC_value > 204 && ADC_value <= 410)
+    {
+        t=128;
+  fe:	80 e8       	ldi	r24, 0x80	; 128
+ 100:	90 e0       	ldi	r25, 0x00	; 0
+ 102:	90 93 07 01 	sts	0x0107, r25
+ 106:	80 93 06 01 	sts	0x0106, r24
+    {
+        t = 255;
+    }
+    return t;
+
+}
+ 10a:	80 91 06 01 	lds	r24, 0x0106
+ 10e:	90 91 07 01 	lds	r25, 0x0107
+ 112:	08 95       	ret
+    left = (int)ADCL;
+    right = (int)ADCH * 256;
+    ADC_value = left + right;
+    if(ADC_value >= 0 && ADC_value <= 204)
+    {
+        t=63;
+ 114:	8f e3       	ldi	r24, 0x3F	; 63
+ 116:	90 e0       	ldi	r25, 0x00	; 0
+ 118:	90 93 07 01 	sts	0x0107, r25
+ 11c:	80 93 06 01 	sts	0x0106, r24
+    {
+        t = 255;
+    }
+    return t;
+
+}
+ 120:	80 91 06 01 	lds	r24, 0x0106
+ 124:	90 91 07 01 	lds	r25, 0x0107
+ 128:	08 95       	ret
+    {
+        t=128;
+    }
+    else if(ADC_value > 410 && ADC_value <= 614)
+    {
+        t=191;
+ 12a:	8f eb       	ldi	r24, 0xBF	; 191
+ 12c:	90 e0       	ldi	r25, 0x00	; 0
+ 12e:	90 93 07 01 	sts	0x0107, r25
+ 132:	80 93 06 01 	sts	0x0106, r24
+    {
+        t = 255;
+    }
+    return t;
+
+}
+ 136:	80 91 06 01 	lds	r24, 0x0106
+ 13a:	90 91 07 01 	lds	r25, 0x0107
+ 13e:	08 95       	ret
+
+00000140 <standbymode>:
+* Returns: None
+******************************************************************************/
+
+int standbymode()
+{
+    t=63;
+ 140:	8f e3       	ldi	r24, 0x3F	; 63
+ 142:	90 e0       	ldi	r25, 0x00	; 0
+ 144:	90 93 07 01 	sts	0x0107, r25
+ 148:	80 93 06 01 	sts	0x0106, r24
+    return t;
+}
+ 14c:	08 95       	ret
+
+0000014e <GPIOConfig>:
+* Name: GPIOConfig (pin, mode)
+* Description: Configures the mode of the pin as INPUT/PULLUP or OUTPUT
+* Arguments: pin and mode
+* Returns: None
+******************************************************************************/
+void GPIOConfig(Pin,mode){
+ 14e:	28 2f       	mov	r18, r24
+
+        if(mode==1){
+ 150:	61 30       	cpi	r22, 0x01	; 1
+ 152:	71 05       	cpc	r23, r1
+ 154:	81 f0       	breq	.+32     	; 0x176 <GPIOConfig+0x28>
+            SET_BIT(DDRD,Pin);
+        }
+        else{
+            CLR_BIT(DDRD,Pin);
+ 156:	3a b1       	in	r19, 0x0a	; 10
+ 158:	81 e0       	ldi	r24, 0x01	; 1
+ 15a:	90 e0       	ldi	r25, 0x00	; 0
+ 15c:	02 c0       	rjmp	.+4      	; 0x162 <GPIOConfig+0x14>
+ 15e:	88 0f       	add	r24, r24
+ 160:	99 1f       	adc	r25, r25
+ 162:	2a 95       	dec	r18
+ 164:	e2 f7       	brpl	.-8      	; 0x15e <GPIOConfig+0x10>
+ 166:	28 2f       	mov	r18, r24
+ 168:	20 95       	com	r18
+ 16a:	23 23       	and	r18, r19
+ 16c:	2a b9       	out	0x0a, r18	; 10
+            SET_BIT(PORTD,Pin);
+ 16e:	2b b1       	in	r18, 0x0b	; 11
+ 170:	82 2b       	or	r24, r18
+ 172:	8b b9       	out	0x0b, r24	; 11
+ 174:	08 95       	ret
+* Returns: None
+******************************************************************************/
+void GPIOConfig(Pin,mode){
+
+        if(mode==1){
+            SET_BIT(DDRD,Pin);
+ 176:	8a b1       	in	r24, 0x0a	; 10
+ 178:	02 c0       	rjmp	.+4      	; 0x17e <GPIOConfig+0x30>
+ 17a:	66 0f       	add	r22, r22
+ 17c:	77 1f       	adc	r23, r23
+ 17e:	2a 95       	dec	r18
+ 180:	e2 f7       	brpl	.-8      	; 0x17a <GPIOConfig+0x2c>
+ 182:	86 2b       	or	r24, r22
+ 184:	8a b9       	out	0x0a, r24	; 10
+ 186:	08 95       	ret
+
+00000188 <GPIOPinRead>:
+* Returns: a
+******************************************************************************/
+int GPIOPinRead(Pin){
+
+
+            uint8_t PIN_READ=PIND;
+ 188:	29 b1       	in	r18, 0x09	; 9
+            if(PIN_READ & (1<<Pin)){
+ 18a:	30 e0       	ldi	r19, 0x00	; 0
+ 18c:	02 c0       	rjmp	.+4      	; 0x192 <GPIOPinRead+0xa>
+ 18e:	35 95       	asr	r19
+ 190:	27 95       	ror	r18
+ 192:	8a 95       	dec	r24
+ 194:	e2 f7       	brpl	.-8      	; 0x18e <GPIOPinRead+0x6>
+ 196:	20 fd       	sbrc	r18, 0
+ 198:	09 c0       	rjmp	.+18     	; 0x1ac <GPIOPinRead+0x24>
+                a=1;
+            }
+            else{
+                a=0;
+ 19a:	10 92 09 01 	sts	0x0109, r1
+ 19e:	10 92 08 01 	sts	0x0108, r1
+            }
+    return a;
+};
+ 1a2:	80 91 08 01 	lds	r24, 0x0108
+ 1a6:	90 91 09 01 	lds	r25, 0x0109
+ 1aa:	08 95       	ret
+int GPIOPinRead(Pin){
+
+
+            uint8_t PIN_READ=PIND;
+            if(PIN_READ & (1<<Pin)){
+                a=1;
+ 1ac:	81 e0       	ldi	r24, 0x01	; 1
+ 1ae:	90 e0       	ldi	r25, 0x00	; 0
+ 1b0:	90 93 09 01 	sts	0x0109, r25
+ 1b4:	80 93 08 01 	sts	0x0108, r24
+            }
+            else{
+                a=0;
+            }
+    return a;
+};
+ 1b8:	80 91 08 01 	lds	r24, 0x0108
+ 1bc:	90 91 09 01 	lds	r25, 0x0109
+ 1c0:	08 95       	ret
+
+000001c2 <GPIOPinWrite>:
+* Name: void GPIOPinWrite(int Pin,int state)
+* Description: Writes the state of the pin as HIGH or LOW
+* Arguments: pin and state
+* Returns: None
+******************************************************************************/
+void GPIOPinWrite(Pin,state){
+ 1c2:	38 2f       	mov	r19, r24
+        if(state==0){
+ 1c4:	67 2b       	or	r22, r23
+ 1c6:	59 f0       	breq	.+22     	; 0x1de <GPIOPinWrite+0x1c>
+            CLR_BIT(PORTD,Pin);
+        }
+        else{
+            SET_BIT(PORTD,Pin);
+ 1c8:	2b b1       	in	r18, 0x0b	; 11
+ 1ca:	81 e0       	ldi	r24, 0x01	; 1
+ 1cc:	90 e0       	ldi	r25, 0x00	; 0
+ 1ce:	02 c0       	rjmp	.+4      	; 0x1d4 <GPIOPinWrite+0x12>
+ 1d0:	88 0f       	add	r24, r24
+ 1d2:	99 1f       	adc	r25, r25
+ 1d4:	3a 95       	dec	r19
+ 1d6:	e2 f7       	brpl	.-8      	; 0x1d0 <GPIOPinWrite+0xe>
+ 1d8:	28 2b       	or	r18, r24
+ 1da:	2b b9       	out	0x0b, r18	; 11
+ 1dc:	08 95       	ret
+* Arguments: pin and state
+* Returns: None
+******************************************************************************/
+void GPIOPinWrite(Pin,state){
+        if(state==0){
+            CLR_BIT(PORTD,Pin);
+ 1de:	2b b1       	in	r18, 0x0b	; 11
+ 1e0:	81 e0       	ldi	r24, 0x01	; 1
+ 1e2:	90 e0       	ldi	r25, 0x00	; 0
+ 1e4:	02 c0       	rjmp	.+4      	; 0x1ea <GPIOPinWrite+0x28>
+ 1e6:	88 0f       	add	r24, r24
+ 1e8:	99 1f       	adc	r25, r25
+ 1ea:	3a 95       	dec	r19
+ 1ec:	e2 f7       	brpl	.-8      	; 0x1e6 <GPIOPinWrite+0x24>
+ 1ee:	80 95       	com	r24
+ 1f0:	82 23       	and	r24, r18
+ 1f2:	8b b9       	out	0x0b, r24	; 11
+ 1f4:	08 95       	ret
+
+000001f6 <__vector_1>:
+    }
+
+
+}
+ISR(INT0_vect)
+{
+ 1f6:	1f 92       	push	r1
+ 1f8:	0f 92       	push	r0
+ 1fa:	0f b6       	in	r0, 0x3f	; 63
+ 1fc:	0f 92       	push	r0
+ 1fe:	11 24       	eor	r1, r1
+ 200:	8f 93       	push	r24
+ 202:	9f 93       	push	r25
+    FLAG_BIT.FLAG ^=1;
+ 204:	80 91 0a 01 	lds	r24, 0x010A
+ 208:	80 95       	com	r24
+ 20a:	81 70       	andi	r24, 0x01	; 1
+ 20c:	90 91 0a 01 	lds	r25, 0x010A
+ 210:	9e 7f       	andi	r25, 0xFE	; 254
+ 212:	98 2b       	or	r25, r24
+ 214:	90 93 0a 01 	sts	0x010A, r25
+    TOGGLE_BIT(PORTD,PD7);
+ 218:	8b b1       	in	r24, 0x0b	; 11
+ 21a:	80 58       	subi	r24, 0x80	; 128
+ 21c:	8b b9       	out	0x0b, r24	; 11
+}
+ 21e:	9f 91       	pop	r25
+ 220:	8f 91       	pop	r24
+ 222:	0f 90       	pop	r0
+ 224:	0f be       	out	0x3f, r0	; 63
+ 226:	0f 90       	pop	r0
+ 228:	1f 90       	pop	r1
+ 22a:	18 95       	reti
+
+0000022c <main>:
+{
+    volatile unsigned int FLAG:1;
+}FLAG_BIT;
+int main()
+{
+    GPIOConfig(PD2,INPUT);
+ 22c:	82 e0       	ldi	r24, 0x02	; 2
+ 22e:	90 e0       	ldi	r25, 0x00	; 0
+ 230:	60 e0       	ldi	r22, 0x00	; 0
+ 232:	70 e0       	ldi	r23, 0x00	; 0
+ 234:	0e 94 a7 00 	call	0x14e	; 0x14e <GPIOConfig>
+    GPIOConfig(PD6,OUTPUT);
+ 238:	86 e0       	ldi	r24, 0x06	; 6
+ 23a:	90 e0       	ldi	r25, 0x00	; 0
+ 23c:	61 e0       	ldi	r22, 0x01	; 1
+ 23e:	70 e0       	ldi	r23, 0x00	; 0
+ 240:	0e 94 a7 00 	call	0x14e	; 0x14e <GPIOConfig>
+    GPIOConfig(PD7,OUTPUT);
+ 244:	87 e0       	ldi	r24, 0x07	; 7
+ 246:	90 e0       	ldi	r25, 0x00	; 0
+ 248:	61 e0       	ldi	r22, 0x01	; 1
+ 24a:	70 e0       	ldi	r23, 0x00	; 0
+ 24c:	0e 94 a7 00 	call	0x14e	; 0x14e <GPIOConfig>
+    //FOR PD2
+    EICRA &=~(1<<ISC01);
+ 250:	80 91 69 00 	lds	r24, 0x0069
+ 254:	8d 7f       	andi	r24, 0xFD	; 253
+ 256:	80 93 69 00 	sts	0x0069, r24
+    EICRA |= (1<<ISC00);
+ 25a:	80 91 69 00 	lds	r24, 0x0069
+ 25e:	81 60       	ori	r24, 0x01	; 1
+ 260:	80 93 69 00 	sts	0x0069, r24
+    EIMSK |= (1<<INT0);
+ 264:	e8 9a       	sbi	0x1d, 0	; 29
+    sei();
+ 266:	78 94       	sei
+    //FOR TIMER0
+    TCCR0A |= ((1 << WGM01) | (1 << WGM00));
+ 268:	84 b5       	in	r24, 0x24	; 36
+ 26a:	83 60       	ori	r24, 0x03	; 3
+ 26c:	84 bd       	out	0x24, r24	; 36
+    TCCR0A |= (1 << COM0A1);
+ 26e:	84 b5       	in	r24, 0x24	; 36
+ 270:	80 68       	ori	r24, 0x80	; 128
+ 272:	84 bd       	out	0x24, r24	; 36
+    TCCR0A &= ~(1 << COM0A0);
+ 274:	84 b5       	in	r24, 0x24	; 36
+ 276:	8f 7b       	andi	r24, 0xBF	; 191
+ 278:	84 bd       	out	0x24, r24	; 36
+    OCR0A = 0;
+ 27a:	17 bc       	out	0x27, r1	; 39
+    TCNT0 = 0x00; // Timer counter register
+ 27c:	16 bc       	out	0x26, r1	; 38
+    TCCR0B |= ((1 << CS00) | (1 << CS02)); // Clock selection 101
+ 27e:	85 b5       	in	r24, 0x25	; 37
+ 280:	85 60       	ori	r24, 0x05	; 5
+ 282:	85 bd       	out	0x25, r24	; 37
+    TCCR0B &= ~(1 << CS01); //101
+ 284:	85 b5       	in	r24, 0x25	; 37
+ 286:	8d 7f       	andi	r24, 0xFD	; 253
+ 288:	85 bd       	out	0x25, r24	; 37
+    sei(); // Global interrupt
+ 28a:	78 94       	sei
+    //FOR ADC
+    ADMUX &= 0x00;
+ 28c:	80 91 7c 00 	lds	r24, 0x007C
+ 290:	10 92 7c 00 	sts	0x007C, r1
+    ADMUX |= (1 << REFS0);
+ 294:	80 91 7c 00 	lds	r24, 0x007C
+ 298:	80 64       	ori	r24, 0x40	; 64
+ 29a:	80 93 7c 00 	sts	0x007C, r24
+    ADCSRA |= (1 << ADEN);
+ 29e:	80 91 7a 00 	lds	r24, 0x007A
+ 2a2:	80 68       	ori	r24, 0x80	; 128
+ 2a4:	80 93 7a 00 	sts	0x007A, r24
+    while(1)
+    {
+        if(FLAG_BIT.FLAG == 1)
+ 2a8:	80 91 0a 01 	lds	r24, 0x010A
+ 2ac:	80 fd       	sbrc	r24, 0
+ 2ae:	07 c0       	rjmp	.+14     	; 0x2be <main+0x92>
+        {
+            OCR0A = samplingmode();
+        }
+        else
+        {
+            OCR0A = standbymode();
+ 2b0:	0e 94 a0 00 	call	0x140	; 0x140 <standbymode>
+ 2b4:	87 bd       	out	0x27, r24	; 39
+    ADMUX &= 0x00;
+    ADMUX |= (1 << REFS0);
+    ADCSRA |= (1 << ADEN);
+    while(1)
+    {
+        if(FLAG_BIT.FLAG == 1)
+ 2b6:	80 91 0a 01 	lds	r24, 0x010A
+ 2ba:	80 ff       	sbrs	r24, 0
+ 2bc:	f9 cf       	rjmp	.-14     	; 0x2b0 <main+0x84>
+        {
+            OCR0A = samplingmode();
+ 2be:	0e 94 48 00 	call	0x90	; 0x90 <samplingmode>
+ 2c2:	87 bd       	out	0x27, r24	; 39
+ 2c4:	f1 cf       	rjmp	.-30     	; 0x2a8 <main+0x7c>
+
+000002c6 <_exit>:
+ 2c6:	f8 94       	cli
+
+000002c8 <__stop_program>:
+ 2c8:	ff cf       	rjmp	.-2      	; 0x2c8 <__stop_program>

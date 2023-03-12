@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1600000853 source:c:\users\k.raviteja\desktop\embedded c\codes\timer_1\fuse.c
+	<avr/io.h>
+
+1600084406 source:c:\users\k.raviteja\desktop\embedded c\codes\timer_1\gpio.c
+	"GPIO.h"
+
+1600084407 c:\users\k.raviteja\desktop\embedded c\codes\timer_1\gpio.h
+	<avr/io.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<util/delay.h>
+
+1600429639 source:c:\users\k.raviteja\desktop\embedded c\codes\timer_1\appmode.c
+	"AppMode.h"
+
+1600517674 c:\users\k.raviteja\desktop\embedded c\codes\timer_1\appmode.h
+	"GPIO.h"
+
+1600518005 source:c:\users\k.raviteja\desktop\embedded c\codes\timer_1\main.c
+	"main.h"
+
+1600517674 c:\users\k.raviteja\desktop\embedded c\codes\timer_1\main.h
+	"GPIO.h"
+	"ModeState.h"
+	"AppMode.h"
+	<avr/interrupt.h>
+
+1600515923 c:\users\k.raviteja\desktop\embedded c\codes\timer_1\modestate.h
+	"GPIO.h"
+
+1600429622 source:c:\users\k.raviteja\desktop\embedded c\codes\timer_1\modestate.c
+	"ModeState.h"
+

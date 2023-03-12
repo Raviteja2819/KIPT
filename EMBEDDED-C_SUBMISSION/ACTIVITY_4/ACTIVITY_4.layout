@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug" />
+	<File name="GPIO.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1794" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="GPIO.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1132" topLine="32" />
+		</Cursor>
+	</File>
+	<File name="fuse.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="AppMode.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2501" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="AppMode.h" open="1" top="1" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1019" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="main.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1230" topLine="30" />
+		</Cursor>
+	</File>
+	<EditorTabsLayout layout="0d28a4f05f6dbe9604d9751b00000004=10;ACTIVITY_4:GPIO.c,*11;ACTIVITY_4:AppMode.h,12;ACTIVITY_4:AppMode.c,13;ACTIVITY_4:fuse.c,14;ACTIVITY_4:main.h,15;ACTIVITY_4:GPIO.h,9;ACTIVITY_4:main.c@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=180;minh=180;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=0d28a4f05f6dbe9604d9751b00000004;caption=;state=2098172;dir=1;layer=0;row=1;pos=0;prop=100000;bestw=180;besth=180;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=348|dock_size(5,0,0)=202|" />
+</CodeBlocks_layout_file>
